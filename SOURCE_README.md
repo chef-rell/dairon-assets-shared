@@ -10,6 +10,8 @@ The GitHub Actions workflow:
 4. Reopens the `.blend` and validates the editable source.
 5. Parses the `.glb` to verify `TEXCOORD_0`, base-colour atlas use, absence of animation/skin/vertex-colour/normal/metallic-roughness/occlusion/emissive texture data, and exact embedded PNG bytes.
 
+The workflow also verifies hashes for every transported source chunk before extraction, so a build cannot proceed from corrupted or altered source data.
+
 ## AI disclosure
 
 OpenAI ChatGPT was used for brief interpretation, topology/design planning, and authorship of the deterministic Blender Python construction and validation scripts. Blender generates the mesh by executing those scripts. No image-to-3D or text-to-3D mesh generator, scan, third-party geometry, or AI-generated presentation image is used in the deliverable geometry or UVs. The supplied atlas is copied byte-for-byte and is not generated, repainted, recoloured, or otherwise altered by AI.
