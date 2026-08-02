@@ -23,8 +23,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          echo "b0e00b94a4a96302c3d87cc6b3dc7ff8b60904339d3e85049a9ac09ae3b130d4  build_payload.tar.gz.b64.part00" | sha256sum --check --strict
+          echo "6de4f161705ed4af5153251f3d506b0b35d5d61dbdf7bb37be84ae603b545b13  build_payload.tar.gz.b64.part01" | sha256sum --check --strict
+          echo "fd34571f926902b794a74e7d2dd36c000a07bbd02f694cf65ca440538fa1695f  build_payload.tar.gz.b64.part02" | sha256sum --check --strict
+          echo "fceb05b27db85d52e3e032a7ac2037575693fea2a697a98f4cdd65d14f59ece5  build_payload.tar.gz.b64.part03" | sha256sum --check --strict
+          echo "2a50c28949e3771f1543fd5ebfcfef0924a2163c8008beef8437d26a55ed1447  build_payload.tar.gz.b64.part04" | sha256sum --check --strict
           cat build_payload.tar.gz.b64.part* > build_payload.tar.gz.b64
+          echo "11d55a337aa253934fe6eb9e203d52c677ebf588efed6d6fd89c1c64332604ae  build_payload.tar.gz.b64" | sha256sum --check --strict
           base64 --decode build_payload.tar.gz.b64 > build_payload.tar.gz
+          echo "fbd132d5351d6e0152ac76d4670cc4e7c5e5fffe704e66e5cae06e04aace0dfe  build_payload.tar.gz" | sha256sum --check --strict
           tar --extract --gzip --file build_payload.tar.gz
           echo "234286c266e5d9bbfe9a31b4b1694788112f3bd5897907f92e115871f3662264  assets/texture-sheet-shipping-palette-v3.png" | sha256sum --check --strict
           file assets/texture-sheet-shipping-palette-v3.png
