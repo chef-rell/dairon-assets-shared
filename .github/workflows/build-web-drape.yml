@@ -23,6 +23,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          cat build_payload.tar.gz.b64.part* > build_payload.tar.gz.b64
           base64 --decode build_payload.tar.gz.b64 > build_payload.tar.gz
           tar --extract --gzip --file build_payload.tar.gz
           echo "234286c266e5d9bbfe9a31b4b1694788112f3bd5897907f92e115871f3662264  assets/texture-sheet-shipping-palette-v3.png" | sha256sum --check --strict
